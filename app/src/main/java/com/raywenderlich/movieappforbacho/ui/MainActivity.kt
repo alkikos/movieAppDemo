@@ -34,8 +34,8 @@ class MainActivity : AppCompatActivity(){
     private fun startMovieListFragment(){
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, movieListFragment)
-            .disallowAddToBackStack()
-            .addToBackStack(null)
+            .disallowAddToBackStack()// ეს ორი რაღაც ერთად რო დაწერო
+            .addToBackStack(null)// დაქრაშავს
             .commit()
     }
 

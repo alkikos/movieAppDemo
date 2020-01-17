@@ -32,6 +32,8 @@ class MovieDetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        //ეს კოდის ბლოკი არ გაეშვება
+        //ეს ყველაფერი წაიღე onViewCreated-ში
         view?.let {
             fragmentContainer = it.findViewById(R.id.fragmet_info_container)
             castButton = it.findViewById(R.id.movie_cast_button)
@@ -47,6 +49,7 @@ class MovieDetailsFragment : Fragment() {
 
             }
         }
+        //რეალურად აქ ქმნი views
         return inflater.inflate(R.layout.fragment_movie_info, container, false)
     }
 
@@ -90,6 +93,8 @@ class MovieDetailsFragment : Fragment() {
     }
 
     private fun startMovieInfoFragment() {
+        //activity scope ფრაგმენტების ნავიგაცია აქთივითიში გაიტანე
+        //თუ გინდა რო ფრაგმენტში ჩააგდო სხვა ფრაგმენტი გამოიყენე childFragmentManager
         activity!!.supportFragmentManager
             .beginTransaction()
             .replace(R.id.fragmet_info_container, movieInfoFragment)
@@ -98,6 +103,8 @@ class MovieDetailsFragment : Fragment() {
     }
 
     private fun startMovieCastFragment() {
+        //activity scope ფრაგმენტების ნავიგაცია აქთივითიში გაიტანე
+        //თუ გინდა რო ფრაგმენტში ჩააგდო სხვა ფრაგმენტი გამოიყენე childFragmentManager
         activity!!.supportFragmentManager
             .beginTransaction()
             .replace(R.id.fragmet_info_container, movieCastFragment)

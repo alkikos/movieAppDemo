@@ -24,7 +24,9 @@ class MovieCastFragment : Fragment() {
 
     //implement later
     val movieID = 20
+    //LiveData-ები ViewModel-ებში წერე
     lateinit var cast: LiveData<Cast>
+    //სინტაქსის დაცვა ძაან მნიშვნელოვანია ბევრგან გაქ დაკიდებული
     lateinit var movieCastviewModel: MovieCastViewModel
     lateinit var recyclerView: RecyclerView
     private var adapter = CastAdapter(Cast(mutableListOf(), null))
@@ -41,6 +43,9 @@ class MovieCastFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        //ეს ხაზი დაქრაშავს
+        //1) ჩახედე findViewId-ის ნაცვლად შეგიძლია პირდაპირ გამოიყენო cast_list_recyclerview
+        //2) ჩახედე ფრაგმენტის lifecycle-ს ამ მომენტში view null-ია ყოველთვის
         recyclerView = view!!.findViewById(R.id.cast_list_recyclerview)
         recyclerView.adapter = adapter
         return inflater.inflate(R.layout.fragment_movie_cast, container, false)
@@ -53,6 +58,7 @@ class MovieCastFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
+        //ეს კარგად გიწერია
         if (context is OnFragmentInteractionListener) {
             listener = context
         } else {

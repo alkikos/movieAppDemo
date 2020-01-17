@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.raywenderlich.movieappforbacho.R
 import com.raywenderlich.movieappforbacho.data.model.Cast
 
+//!! ეს code smell-ია ერიდე ამათ გამოყენებას და მარტო რადიკალურ ქეისებში გამოიყენე
 class CastAdapter(val cast: Cast) : RecyclerView.Adapter<CastAdaoterHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CastAdaoterHolder {
         val view = LayoutInflater.from(parent.context)

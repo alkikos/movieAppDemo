@@ -7,7 +7,7 @@ import okhttp3.OkHttpClient
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-
+//Retrofit-ის კლიენტი მნიშვნელოვანია რო იყოს სინგლტონ(Singlton) კლასი
 class RetrofitClient {
 
     private val moviesApi: MoviesApi
@@ -20,6 +20,8 @@ class RetrofitClient {
     }
 
     init {
+        //okhttp-ის გაუწერე HttpLoggingInterceptor რო რექუესთები და რესპონსები დაილოგოს ლოგქეთში
+        //https://github.com/square/okhttp/tree/master/okhttp-logging-interceptor
         val builder = OkHttpClient.Builder()
         val okHttpClient = builder.build()
         val retrofit = Retrofit.Builder()
